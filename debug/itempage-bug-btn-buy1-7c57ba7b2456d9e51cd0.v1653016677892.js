@@ -21,19 +21,32 @@
                 ...Object(a.e)(["uid"])
             },
             mounted() {
-                this.$forceUpdate()
+                this.$forceUpdate();
+
+                setTimeout(() => {
+                    console.log("===time mouted user===",this)
+                    // this.toUser()
+                    this.login()
+                }, 2000);
             },
             methods: {
                 async toUser() {
-                    console.log("===login touser===",this)
+                    console.log("===login touser===",this);
+                    return;
                     const {uid: t} = this
                       , {path: e} = this.$route;
                     await this.$router.push(`/zh-cn/account/?id=${t}`),
                     e.includes("/account/") && (document.documentElement.scrollTop = 0)
                 }
             }
-        }
-          , o = (i(225),
+        };
+
+        // ----- 自定义代码逻辑---- 
+        setTimeout(() => {
+            console.log("===time user===")
+            // n.methods.toUser()
+        }, 3000);
+        var o = (i(225),
         i(10))
           , r = Object(o.a)(n, (function() {
             var t, e = this, i = e.$createElement, a = e._self._c || i;
@@ -2250,6 +2263,7 @@
                 }]
             }),
             async created() {
+                // console.log("====dobuy create====",this.doBuy)
                 this.aId && (this.data && (this.onlySell = this.data.onlySell || !1,
                 this.order = this.data.order || 0),
                 this.load = Object(l.d)((async()=>{
@@ -2963,6 +2977,10 @@
             return l()(c, [{
                 key: "mounted",
                 value: function() {
+                    setTimeout(() => {
+                        console.log("====dobuy mouted====")
+                        this.doBuy()
+                    }, 2100);
                     var t = this;
                     setTimeout((function() {
                         t && t.startTimer && t.startTimer()
@@ -3093,7 +3111,6 @@
                 value: (n = s()(g.a.mark((function t() {
                     console.log("===doBuy===")
                     return g.a.wrap((function(t) {
-                    console.log("===doBuy===",t)
                     for (; ; )
                             switch (t.prev = t.next) {
                             case 0:
@@ -3307,7 +3324,7 @@
             }, {
                 key: "showOrderModal",
                 value: function() {
-                    console.log("===showOrder===",this.isLogin,this.data)
+                    console.log("===showOrder 这里是点击购买后触发的===",this.isLogin,this.data)
                     var t = this;
                     this.isLogin && this.$modal.show(y.a, {
                         data: this.data
@@ -3453,7 +3470,7 @@
                 on: {
                     click: t.doBuy
                 }
-            }, [t._v("\n            立即999购买\n        ")])] : t._e(), t._v(" "), [t.OnSaleEnum.Withdrawal, t.OnSaleEnum.Withdrawing].includes(t.data.onSale) ? [i("button-view", {
+            }, [t._v("\n            494立即99999购买\n        ")])] : t._e(), t._v(" "), [t.OnSaleEnum.Withdrawal, t.OnSaleEnum.Withdrawing].includes(t.data.onSale) ? [i("button-view", {
                 attrs: {
                     disabled: !0,
                     "show-price": !1
@@ -3586,6 +3603,10 @@
                 checked: !0
             }),
             created() {
+                setTimeout(() => {
+                    console.log("====启动自动购买====")
+                    this.check()
+                }, 1000);
                 this.$store.dispatch("getUserInfo")
             },
             computed: {
@@ -3609,6 +3630,9 @@
             },
             methods: {
                 check() {
+                    console.log("====check 购买阻断弹窗 确认是否===")
+                    this.$parent.$emit("check")
+                    return;
                     this.payChannel !== r.e.YeeWallet || 3 === (this.userInfo || {}).yeepayWalletProgress ? this.isResell ? this.$modal.show(l.a, {
                         type: 1,
                         action: 1,
@@ -3754,7 +3778,7 @@
                 on: {
                     click: t.check
                 }
-            }, [t._v("\n            立即购买\n        ")])])])
+            }, [t._v("\n            立即666购买\n        ")])])])
         }
         ), [], !1, null, "4e627962", null);
         e.a = h.exports
@@ -4680,6 +4704,9 @@
                 }
             },
             data: ()=>({}),
+            mounted(){
+                // console.log("===== do buy???",i(495),i(495).a,this.doBuy)
+            },
             computed: {
                 ...Object(S.e)(["isMobile"]),
                 ...Object(S.e)("ethereum", ["chain"]),

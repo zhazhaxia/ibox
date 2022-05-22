@@ -51,7 +51,7 @@
                 }
             }, [a("span", {
                 staticClass: "text"
-            }, [e._v("\n                登录\n            ")])])]), e._v(" "), a("div", {
+            }, [e._v("\n                登录000\n            ")])])]), e._v(" "), a("div", {
                 directives: [{
                     name: "show",
                     rawName: "v-show",
@@ -2353,6 +2353,7 @@
                     n || this.toast(o, "error")
                 },
                 async loadUserInfo() {
+                    console.log("===load user info===");
                     this.user = {};
                     const {success: t, data: e, code: s} = await a.g.getPersonalInfo(this.userId);
                     100 === s && this.isAccount ? await this.$store.dispatch("checkToken") : t ? (this.user = e || {},
