@@ -3632,7 +3632,7 @@
                 check() {
                     console.log("====check 购买阻断弹窗 确认是否===")
                     this.$parent.$emit("check")
-                    return;
+                    // return;
                     this.payChannel !== r.e.YeeWallet || 3 === (this.userInfo || {}).yeepayWalletProgress ? this.isResell ? this.$modal.show(l.a, {
                         type: 1,
                         action: 1,
