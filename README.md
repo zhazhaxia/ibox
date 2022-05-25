@@ -1,5 +1,5 @@
 # ibox
-ibox art
+ibox art.A quickly way to get the art.
 
 ## Contact
 
